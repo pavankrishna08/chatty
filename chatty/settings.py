@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import django_heroku
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -25,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-u3^klq$1@!9^&%bn#8bm83wcx&(p@v$!-^iz4s^zmug2#4c&$w'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['pavan08.herokuapp.com','localhost','127.0.0.1']
+ALLOWED_HOSTS = ['chatty-ap.herokuapp.com']
 
 
 # Application definition
@@ -87,8 +88,12 @@ CHANNEL_LAYERS = {
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgrsql_psycopg2',
+        'NAME': 'd8fptvc1j63hu7',
+        'USER': 'rqbfysokmehtoo',
+        'PASSWORD': '605d188bf5d7f590277231f21cc400c945a6a00b72eb56958f641c2abf80592c',
+        'HOST': 'ec2-34-192-210-139.compute-1.amazonaws.com',
+        'PORT': '5432',
     }
 }
 
@@ -127,11 +132,11 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+STATIC_ROOT = os.path.join(BASE_DIR,'staticfiles')
 STATIC_URL = 'static/'
+django_heroku.settings(locals())
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.0/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static') 
-django_heroku.settings(locals())
