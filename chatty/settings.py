@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-u3^klq$1@!9^&%bn#8bm83wcx&(p@v$!-^iz4s^zmug2#4c&$w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['chatty-2.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['pavan08.herokuapp.com','localhost','127.0.0.1']
 
 
 # Application definition
